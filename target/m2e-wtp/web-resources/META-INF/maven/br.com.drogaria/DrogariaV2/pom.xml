@@ -102,6 +102,14 @@
 			<version>2.8.2</version>
 		</dependency>
 
+		<!-- Jersey-client -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.19</version>
+		</dependency>
+
+
 		<!-- Todos os temas do PrimeFaces () -->
 		<dependency>
 			<groupId>org.primefaces.themes</groupId>
