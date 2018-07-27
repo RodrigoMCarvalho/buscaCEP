@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -17,21 +19,53 @@ public class CepBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private List<Endereco> listagem = new ArrayList<Endereco>();
+	
+	private Endereco endereco;
+	
+	private String cep;
+
+	private ServicoEndereco servico = new ServicoEndereco();
 
 	public Endereco carregarEndereco() {
-		
-		String cep = null;
-		ServicoEndereco servico = new ServicoEndereco();
-		Client client = Client.create();
-		WebResource wr = client.resource("http://viacep.com.br/ws/" + cep + "/json/");
+		endereco = new Endereco();
+		Client c = Client.create();
+		WebResource wr = c.resource("http://viacep.com.br/ws/" + this.getCep() + "/json/");
 		System.out.println("CHAMOU O URI....");
+		endereco = servico.buscarEnderecoPor(wr.get(String.class));
 		
-		Endereco endereco = servico.buscarEnderecoPor(wr.get(String.class));
 		String JSON = wr.get(String.class);
 		System.out.println(JSON);
 		
-		return endereco;
+		return this.getEndereco();
+	}
 
+	public List<Endereco> getListagem() {
+		return listagem;
+	}
+
+	public void setListagem(List<Endereco> listagem) {
+		this.listagem = listagem;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public void limpar() {
+		this.endereco = new Endereco();
 	}
 
 }

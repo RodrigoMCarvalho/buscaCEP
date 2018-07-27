@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</f:facet>
 
-	<title>"titulo">Codeweb Tecnologia</title>
+	<title>BuscaCEP</title>
 
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<h:outputStylesheet library="css" name="custom.css" />
@@ -31,22 +31,6 @@
 
 				<h:form id="frm" role="form">
 
-					<h2>Dados Cliente</h2>
-					<hr class="colorgraph" />
-					<div class="row">
-						<div class="form-group">
-							<input type="text" name="display_name" id="display_name"
-								class="form-control input-lg" placeholder="Nome" tabindex="3" />
-						</div>
-
-						<div class="form-group">
-							<input type="text" name="email" id="email"
-								class="form-control input-lg" placeholder="Seu E-mail"
-								tabindex="3" />
-						</div>
-
-					</div>
-
 					<hr class="colorgraph" />
 
 					<h2>Endereço Cliente</h2>
@@ -55,70 +39,52 @@
 						<div class="row">
 
 							<div class="col-xs-12 col-sm-6 col-md-6">
-								<h:inputText id="txtCep" value="#{CEPBean.cep}"
+								<h:inputText id="txtCep" value="#{cepBean.cep}"
 									a:placeholder="CEP" styleClass="form-control input-lg" />
 							</div>
+							
 							<div class="col-xs-12 col-md-6">
 								<h:commandButton value="Consultar"
 									styleClass="btn btn-primary btn-lg">
 									<f:ajax event="click" render="panelEndereco"
 										execute="@this txtCep"
-										listener="#{CEPBean.carregarEndereco()}" />
+										listener="#{cepBean.carregarEndereco()}" />
 								</h:commandButton>
-
 							</div>
 						</div>
 
 						<br />
 						<div class="row">
 							<div class="col-xs-12 col-sm-3 col-md-3">
-								<h:inputText id="txtUF" value="#{CEPBean.endereco.uf}"
+								<h:inputText id="txtUF" value="#{cepBean.endereco.uf}"
 									a:placeholder="UF" styleClass="form-control input-lg" />
-
 							</div>
 						</div>
 						<br />
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<h:inputText id="txtCidade"
-									value="#{CEPBean.endereco.localidade}" a:placeholder="Cidade"
+									value="#{cepBean.endereco.localidade}" a:placeholder="Cidade"
 									styleClass="form-control input-lg" />
-
 							</div>
 						</div>
 						<br />
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
-								<h:inputText id="txtBairro" value="#{CEPBean.endereco.bairro}"
+								<h:inputText id="txtBairro" value="#{cepBean.endereco.bairro}"
 									a:placeholder="Bairro" styleClass="form-control input-lg" />
-
 							</div>
 						</div>
 						<br />
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 col-md-6">
 								<h:inputText id="txtLogradouro"
-									value="#{CEPBean.endereco.logradouro}"
+									value="#{cepBean.endereco.logradouro}"
 									a:placeholder="Logradouro" styleClass="form-control input-lg" />
-							</div>
-							<div class="col-xs-12 col-sm-6 col-md-6">
-								<h:inputText id="txtNumero" value="#{CEPBean.endereco.numero}"
-									a:placeholder="Nº" styleClass="form-control input-lg" />
 							</div>
 						</div>
 					</h:panelGroup>
 
-					<hr class="colorgraph" />
-					<div class="form-group">
-						<div class="col-xs-12 col-md-6">
-							<input type="submit" value="Cadastrar"
-								class="btn btn-success btn-block btn-lg" tabindex="7" />
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<input type="reset" value="Limpar"
-								class="btn btn-danger btn-block btn-lg" tabindex="7" />
-						</div>
-					</div>
 				</h:form>
 			</div>
 		</div>
