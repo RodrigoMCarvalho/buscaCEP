@@ -39,6 +39,11 @@ public class CepBean implements Serializable {
 		
 		return this.getEndereco();
 	}
+	
+	public void limpaForm() {
+		endereco = new Endereco();
+		this.setCep("");
+		}
 
 	public List<Endereco> getListagem() {
 		return listagem;

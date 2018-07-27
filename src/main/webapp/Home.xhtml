@@ -9,7 +9,6 @@
 	<f:facet name="first">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<!-- Meta, title, CSS, favicons, etc. -->
-		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</f:facet>
@@ -31,9 +30,9 @@
 
 				<h:form id="frm" role="form">
 
-					<hr class="colorgraph" />
+					<hr/>
 
-					<h2>Endereço Cliente</h2>
+					<h2>Busca CEP</h2>
 
 					<h:panelGroup id="panelEndereco">
 						<div class="row">
@@ -56,8 +55,8 @@
 						<br />
 						<div class="row">
 							<div class="col-xs-12 col-sm-3 col-md-3">
-								<h:inputText id="txtUF" value="#{cepBean.endereco.uf}"
-									a:placeholder="UF" styleClass="form-control input-lg" />
+								<h:inputText id="txtUF" value="#{cepBean.endereco.uf}" 
+								a:placeholder="UF" styleClass="form-control input-lg" />
 							</div>
 						</div>
 						<br />
@@ -83,9 +82,18 @@
 									a:placeholder="Logradouro" styleClass="form-control input-lg" />
 							</div>
 						</div>
+						
 					</h:panelGroup>
-
+					<hr/>
+						<div class="col-xs-12 col-md-6">
+						<h:commandButton value="Limpar"
+									styleClass="btn btn-danger btn-block btn-lg">
+									<f:ajax event="click" render="panelEndereco"
+										listener="#{cepBean.limpaForm()}" />
+						</h:commandButton>
+						</div>
 				</h:form>
+				
 			</div>
 		</div>
 	</div>
